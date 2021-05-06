@@ -1,0 +1,40 @@
+{
+  "name": "@toriyama/opencvjs-playground",
+  "version": "0.0.1",
+  "description": "Enjoy OpenCV.js with me!",
+  "main": "src/index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YUUKIToriyama/opencv.js-playground.git"
+  },
+  "keywords": [
+    "OpenCV.js"
+  ],
+  "author": "YUUKIToriyama",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YUUKIToriyama/opencv.js-playground/issues"
+  },
+  "homepage": "https://github.com/YUUKIToriyama/opencv.js-playground#readme",
+  "dependencies": {
+    "@monaco-editor/react": "^4.1.3",
+    "opencv-react": "^0.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-image-base64": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^17.0.3",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-dev-server": "^3.11.3",
+    "ts-loader": "^9.1.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
