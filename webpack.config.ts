@@ -1,5 +1,5 @@
 import path from 'path';
-import { Configuration as WebpackConfiguration } from 'webpack';
+import webpack, { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
@@ -10,10 +10,13 @@ interface Configuration extends WebpackConfiguration {
 
 const config: Configuration = {
 	context: path.join(__dirname, 'src'),
-	entry: './index.tsx',
+	entry: {
+		styled: ['styled-components'],
+		app: './index.tsx'
+	},
 	output: {
 		path: path.join(__dirname, 'dist'),
-		filename: 'bundle.js',
+		filename: '[name].js',
 	},
 	module: {
 		rules: [
@@ -36,6 +39,10 @@ const config: Configuration = {
 		extensions: ['.ts', '.tsx', '.js', '.jsx'],
 	},
 	plugins: [
+		new webpack.optimize.SplitChunksPlugin({
+			name: 'vendor',
+			minChunks: Infinity
+		}),
 		new HtmlWebpackPlugin({
 			template: '../public/index.html'
 		}),
