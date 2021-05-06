@@ -1,6 +1,7 @@
 import path from 'path';
 import { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 interface Configuration extends WebpackConfiguration {
 	devServer: WebpackDevServerConfiguration;
@@ -12,7 +13,6 @@ const config: Configuration = {
 	output: {
 		path: path.join(__dirname, 'dist'),
 		filename: 'bundle.js',
-		publicPath: '/assets',
 	},
 	module: {
 		rules: [
@@ -26,6 +26,11 @@ const config: Configuration = {
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js', '.jsx'],
 	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: '../public/index.html'
+		})
+	],
 	devtool: "inline-source-map",
 	devServer: {
 		contentBase: path.join(__dirname, 'public'),
