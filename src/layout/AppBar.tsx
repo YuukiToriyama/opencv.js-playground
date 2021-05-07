@@ -2,8 +2,13 @@ import React from "react";
 import {
 	Anchor,
 	Box,
-	Header,
+	Footer,
 	Grommet,
+	Header,
+	Heading,
+	Main,
+	Paragraph,
+	Text
 } from "grommet";
 import {
 	Code,
@@ -11,6 +16,7 @@ import {
 	Github
 } from "grommet-icons";
 import { grommet } from "grommet/themes/grommet";
+import MainContent from "./MainContent";
 
 const AppBar: React.FunctionComponent = () => {
 	return (
@@ -22,6 +28,10 @@ const AppBar: React.FunctionComponent = () => {
 					<Anchor icon={<CircleQuestion />} onClick={() => alert("help")} label="Help" />
 				</Box>
 			</Header>
+			<MainContent />
+			<Footer background="light-4" justify="center" pad="small">
+				<Text textAlign="center" size="small">©2021 YUUKIToriyama All Rights Reserved.</Text>
+			</Footer>
 		</Grommet>
 	)
 }
