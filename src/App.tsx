@@ -6,10 +6,6 @@ import {
 import { grommet } from "grommet/themes/grommet";
 
 import AppBar from "./layout/AppBar";
-/*
-import CodeEditor from './module/CodeEditor';
-import { helloWorld } from './util/sampleCodes';
-*/
 
 const App: React.FunctionComponent = () => {
 

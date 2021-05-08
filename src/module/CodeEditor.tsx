@@ -6,18 +6,25 @@ interface CodeEditorProps {
 	language?: string,
 	theme?: string
 	editorWidth: string,
-	editorHeight: string
+	editorHeight: string,
+	onTextChange?: Function
 }
 
 const CodeEditor: React.FunctionComponent<CodeEditorProps> = (props) => {
 	const refCodeEditor = React.useRef(null);
 	React.useEffect(() => {
-		Monaco.editor.create(refCodeEditor.current!!, {
+		let editor = Monaco.editor.create(refCodeEditor.current!!, {
 			value: props.defaultValue || 'console.log("Hello, world!");',
 			language: props.language || 'javascript',
 			theme: props.theme || 'vs-dark',
 			minimap: { enabled: false }
-		})
+		});
+		editor.onDidChangeModelContent(() => {
+			let text = editor.getValue();
+			if (props.onTextChange !== undefined) {
+				props.onTextChange(text);
+			}
+		});
 	}, []);
 	return (
 		<div
