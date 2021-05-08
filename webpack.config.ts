@@ -30,7 +30,7 @@ const config: Configuration = {
 			},
 			{
 				test: /\.ttf$/,
-				use: ['file-loader']
+				type: 'asset/resource'
 			}
 		],
 	},
