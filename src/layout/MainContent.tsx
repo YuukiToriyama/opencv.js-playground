@@ -4,6 +4,7 @@ import {
 	Heading,
 	Main,
 	Paragraph,
+	TextArea
 } from "grommet";
 
 import CodeEditor from '../module/CodeEditor';
@@ -15,8 +16,21 @@ const MainContent: React.FunctionComponent = () => {
 		setCode(currentCode);
 		//console.log(currentCode)
 	}
+	const [log, setLog] = React.useState("Console");
 	const onButtonClick = () => {
-		console.log(code);
+		// console.log()を書き換えて結果を<TextArea/>に表示する
+		console.log = (text: string) => {
+			setLog(prevState => text + "\n" + prevState);
+		}
+		// window.onerror()を書き換えてエラーが出た場合にログに表示できるようにする
+		window.onerror = (message, url, lineNumber, columnNumber, error) => {
+			if (lineNumber !== undefined) {
+				alert(lineNumber - 2 + ":" + columnNumber + ":" + message);
+			}
+		}
+		// コードを実行
+		const func = new Function(code);
+		func();
 	}
 	return (
 		<Main pad="large">
@@ -30,6 +44,7 @@ const MainContent: React.FunctionComponent = () => {
 				onTextChange={onEditorCodeChange}
 			></CodeEditor>
 			<Button onClick={onButtonClick} label="実行" primary />
+			<TextArea value={log} />
 		</Main>
 	)
 }
