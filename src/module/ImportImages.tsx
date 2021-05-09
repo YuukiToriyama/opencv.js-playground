@@ -60,9 +60,9 @@ const ImportImages: React.FunctionComponent<ImportImagesProps> = (props) => {
 	const [images, setImages] = React.useState<{ src: string, name: string }[]>([]);
 	const onFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		if (event.target.files) {
-			const reader = new FileReader();
 			const files = event.target.files;
 			for (let i = 0; i < files.length; i++) {
+				const reader = new FileReader();
 				reader.readAsDataURL(files[i]);
 				reader.onload = () => {
 					if (typeof reader.result === "string") {
@@ -83,6 +83,7 @@ const ImportImages: React.FunctionComponent<ImportImagesProps> = (props) => {
 			<Heading level="2">Import Images</Heading>
 			<Paragraph>First, import images which you want to process.</Paragraph>
 			<FileInput
+				multiple
 				onChange={onFileInputChange}
 			/>
 			<Box pad="small">
