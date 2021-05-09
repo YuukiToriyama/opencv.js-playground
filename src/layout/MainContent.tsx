@@ -14,6 +14,7 @@ import { grommet } from "grommet/themes"
 import { deepMerge } from "grommet/utils"
 
 import CodeEditor from '../module/CodeEditor';
+import ImportImages from '../module/ImportImages';
 import { helloWorld } from '../util/sampleCodes';
 
 const MainContent: React.FunctionComponent = () => {
@@ -87,11 +88,13 @@ const MainContent: React.FunctionComponent = () => {
 			}
 		}
 		// コードを実行
-		const func = new Function(code);
-		func();
+		const executeCode = new Function(code);
+		executeCode();
 	}
 	return (
 		<Main pad="large">
+			<Heading>Main content</Heading>
+			<Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
 			<Grommet theme={customBreakpoints}>
 				<Grid
 					areas={fixedGridAreas[size]}
@@ -100,8 +103,7 @@ const MainContent: React.FunctionComponent = () => {
 					gap="small"
 				>
 					<Box gridArea="description" background="neutral-2">
-						<Heading>Main content</Heading>
-						<Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
+						<ImportImages onImageLoaded={() => { }} />
 					</Box>
 					<Box gridArea="editor" background="neutral-2">
 						<CodeEditor
