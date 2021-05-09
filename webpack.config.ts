@@ -36,6 +36,10 @@ const config: Configuration = {
 			{
 				test: /\.ttf$/,
 				type: 'asset/resource'
+			},
+			{
+				test: /\.(png|jpg)$/,
+				type: 'asset/resource'
 			}
 		],
 	},
