@@ -1,5 +1,5 @@
 import React from 'react';
-import * as Monaco from 'monaco-editor';
+import * as Monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
 
 interface CodeEditorProps {
 	defaultValue?: string,

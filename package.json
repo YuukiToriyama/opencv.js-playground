@@ -7,7 +7,7 @@
     "start": "webpack-dev-server",
     "build": "webpack --mode=production",
     "build:watch": "webpack --watch",
-    "analyze": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json",
+    "analyze": "webpack --profile --json | webpack-bundle-analyzer",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-	Box,
 	Grommet
 } from 'grommet';
 import { grommet } from "grommet/themes/grommet";

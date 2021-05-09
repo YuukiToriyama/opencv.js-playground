@@ -12,11 +12,16 @@ const config: Configuration = {
 	context: path.join(__dirname, 'src'),
 	entry: {
 		styled: ['styled-components'],
-		app: './index.tsx'
+		app: './index.tsx',
+		'editor.worker': 'monaco-editor/esm/vs/editor/editor.worker.js',
+		'json.worker': 'monaco-editor/esm/vs/language/json/json.worker',
+		'css.worker': 'monaco-editor/esm/vs/language/css/css.worker',
+		'html.worker': 'monaco-editor/esm/vs/language/html/html.worker',
+		'ts.worker': 'monaco-editor/esm/vs/language/typescript/ts.worker'
 	},
 	output: {
 		path: path.join(__dirname, 'dist'),
-		filename: '[name].js',
+		filename: '[name]-[fullhash].js',
 	},
 	module: {
 		rules: [
@@ -40,13 +45,15 @@ const config: Configuration = {
 	},
 	plugins: [
 		new webpack.optimize.SplitChunksPlugin({
-			name: 'vendor',
+			name: 'styled',
 			minChunks: Infinity
 		}),
 		new HtmlWebpackPlugin({
 			template: '../public/index.html'
 		}),
-		new MonacoWebpackPlugin()
+		new MonacoWebpackPlugin({
+			languages: ["javascript", "typescript"]
+		})
 	],
 	devtool: "inline-source-map",
 	devServer: {
