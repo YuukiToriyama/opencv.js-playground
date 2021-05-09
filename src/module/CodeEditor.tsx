@@ -18,7 +18,10 @@ const CodeEditor: React.FunctionComponent<CodeEditorProps> = (props) => {
 			value: props.defaultValue || 'console.log("Hello, world!");',
 			language: props.language || 'javascript',
 			theme: props.theme || 'vs-dark',
-			minimap: { enabled: false }
+			minimap: { enabled: false },
+			automaticLayout: true, // 画面サイズの変更に応じて自動変形
+			wordWrap: "on",
+			wordWrapColumn: 0 // 右端で折返し
 		});
 		// テキストが変わった場合props.onTextChange()を実行
 		editor.onDidChangeModelContent(() => {
