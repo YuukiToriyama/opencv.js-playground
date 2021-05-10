@@ -93,17 +93,22 @@ const MainContent: React.FunctionComponent = () => {
 	}
 	return (
 		<Main pad="large">
+			{/*
 			<Heading>Main content</Heading>
 			<Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
+			*/}
 			<Grommet theme={customBreakpoints}>
+				<Box background="light-3" height="medium">
+					<ImportImages onImageLoaded={() => { }} overflow={{ vertical: "scroll" }} />
+				</Box>
 				<Grid
 					areas={fixedGridAreas[size]}
 					rows={fixedGridRows[size]}
 					columns={fixedGridColumns[size]}
 					gap="small"
 				>
-					<Box gridArea="description" background="neutral-2">
-						<ImportImages onImageLoaded={() => { }} />
+					<Box gridArea="description" background="dark-3" >
+						<Heading>hoge</Heading>
 					</Box>
 					<Box gridArea="editor" background="neutral-2">
 						<CodeEditor

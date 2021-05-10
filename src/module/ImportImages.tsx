@@ -1,26 +1,27 @@
 import React from "react";
 import {
 	Box,
+	BoxProps,
 	FileInput,
 	Heading,
 	Grid,
-	Grommet,
 	Paragraph
 } from "grommet";
 
 import LoadedImage from "./LoadedImage";
-/*
+
 const sampleImages = [
-	{ src: "https://i.imgur.com/E5fh25x.jpg", name: "wildLife.jpg" },
-	{ src: "https://i.imgur.com/ZS8vJ2f.jpg", name: "panda.jpg" },
-	{ src: "https://i.imgur.com/IG9UZNO.jpg", name: "foo.jpg" }
+	{ src: "https://i.imgur.com/E5fh25x.jpg", name: "wildLife.jpg", id: "sample-1.jpg" },
+	{ src: "https://i.imgur.com/ZS8vJ2f.jpg", name: "panda.jpg", id: "sample-2.jpg" },
+	{ src: "https://i.imgur.com/IG9UZNO.jpg", name: "foo.jpg", id: "sample-3.jpg" }
 ]
-*/
+
 interface ImportImagesProps {
-	onImageLoaded: Function
+	onImageLoaded: Function,
+	overflow?: BoxProps["overflow"]
 }
 const ImportImages: React.FunctionComponent<ImportImagesProps> = (props) => {
-	const [images, setImages] = React.useState<{ src: string, name: string, id: string }[]>([]);
+	const [images, setImages] = React.useState<{ src: string, name: string, id: string }[]>(sampleImages);
 	const onFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		if (event.target.files) {
 			const files = event.target.files;
@@ -43,14 +44,14 @@ const ImportImages: React.FunctionComponent<ImportImagesProps> = (props) => {
 		}
 	}
 	return (
-		<Grommet>
+		<Box>
 			<Heading level="2">Import Images</Heading>
 			<Paragraph>First, import images which you want to process.</Paragraph>
 			<FileInput
 				multiple
 				onChange={onFileInputChange}
 			/>
-			<Box pad="small">
+			<Box pad="small" overflow={props.overflow}>
 				<Grid
 					gap="small"
 					rows="small"
@@ -61,7 +62,7 @@ const ImportImages: React.FunctionComponent<ImportImagesProps> = (props) => {
 					))}
 				</Grid>
 			</Box>
-		</Grommet>
+		</Box>
 	)
 }
 export default ImportImages
