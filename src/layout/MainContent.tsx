@@ -6,7 +6,6 @@ import {
 	Grommet,
 	Heading,
 	Main,
-	Paragraph,
 	ResponsiveContext,
 	TextArea,
 } from "grommet";
@@ -15,7 +14,7 @@ import { deepMerge } from "grommet/utils"
 
 import CodeEditor from '../module/CodeEditor';
 import ImportImages from '../module/ImportImages';
-import { helloWorld } from '../util/sampleCodes';
+import { threshold } from '../util/sampleCodes';
 
 const MainContent: React.FunctionComponent = () => {
 	// レスポンシブ対応
@@ -70,7 +69,7 @@ const MainContent: React.FunctionComponent = () => {
 		],
 	};
 	// 入力されたコードはstateに保存しておく
-	const [code, setCode] = React.useState(helloWorld);
+	const [code, setCode] = React.useState(threshold);
 	const onEditorCodeChange = (currentCode: string) => {
 		setCode(currentCode);
 		//console.log(currentCode)
