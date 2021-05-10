@@ -100,10 +100,11 @@ const ImportImages: React.FunctionComponent<ImportImagesProps> = (props) => {
 						}}
 						onClick={() => { }}
 						key="add new image"
+						style={{ position: "relative" }}
 					>
+						<input type="file" accept="image/png,image/jpeg,image/gif" onChange={onFileInputChange} style={inputElementStyle} />
 						<Gallery size="large" />
 						<Text>Click or Drop files here</Text>
-						<input type="file" accept="image/png,image/jpeg,image/gif" onChange={onFileInputChange} style={inputElementStyle} />
 					</Box>
 					{images.length > 0 && images.map(image => (
 						<LoadedImage src={image.src} name={image.name} id={image.id} key={image.name} />
