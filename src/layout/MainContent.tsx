@@ -13,12 +13,12 @@ import {
 import CodeEditor from '../module/CodeEditor';
 import ImportImages from '../module/ImportImages';
 import { threshold } from '../util/sampleCodes';
+import Console from "../module/Console";
 
-interface Log {
+export interface Log {
 	method: string
 	error?: Error
-	message?: string
-	object?: object
+	object?: object | string
 }
 
 const MainContent: React.FunctionComponent = () => {
@@ -34,12 +34,8 @@ const MainContent: React.FunctionComponent = () => {
 		// console.log()を書き換えて結果を<TextArea/>に表示する
 		console.log = (args: string | object) => {
 			let log: Log = {
-				method: "log"
-			}
-			if (typeof args === "string") {
-				log.message = args;
-			} else {
-				log.object = args;
+				method: "log",
+				object: args
 			}
 			setLogs(prevState => [log].concat(prevState));
 		}
@@ -51,7 +47,7 @@ const MainContent: React.FunctionComponent = () => {
 					error: error
 				}
 				setLogs(prevState => [log].concat(prevState));
-				console.error(logs);
+				//console.error(logs);
 			}
 		}
 	}, []);
@@ -89,6 +85,7 @@ const MainContent: React.FunctionComponent = () => {
 					<Text>Set options and execute your code.</Text>
 					<Button onClick={onButtonClick} label="実行" primary />
 					{/* 表かなにかを使ってコンソールを表現する */}
+					<Console logs={logs} />
 				</Box>
 				{/* Area3 */}
 				{/*
