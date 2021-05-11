@@ -2,9 +2,7 @@ import React from "react";
 import {
 	Box,
 	BoxProps,
-	Heading,
 	Grid,
-	Paragraph,
 	Text
 } from "grommet";
 import {
@@ -76,41 +74,37 @@ const ImportImages: React.FunctionComponent<ImportImagesProps> = (props) => {
 	const backgroundOptionOnDragOver = { "color": "dark-4", "opacity": true };
 	const inputElementStyle: React.CSSProperties = { display: "block", opacity: 0, zIndex: 10, position: "absolute", width: "100%", height: "100%" };
 	return (
-		<Box>
-			<Heading level="2">Import Images</Heading>
-			<Paragraph>First, import images which you want to process.</Paragraph>
-			<Box pad="small" overflow={props.overflow} ref={dropAreaRef} background={dragOver ? backgroundOptionOnDragOver : ""}>
-				<Grid
-					gap="small"
-					rows="small"
-					columns={{ count: 'fit', size: ['small', 'small'] }}
+		<Box pad="small" overflow={props.overflow} ref={dropAreaRef} background={dragOver ? backgroundOptionOnDragOver : ""}>
+			<Grid
+				gap="small"
+				rows="small"
+				columns={{ count: 'fit', size: ['small', 'small'] }}
+			>
+				<Box
+					round
+					border
+					width="small"
+					height="small"
+					align="center"
+					justify="center"
+					hoverIndicator={{
+						background: {
+							color: 'background-contrast',
+						},
+						elevation: 'medium',
+					}}
+					onClick={() => { }}
+					key="add new image"
+					style={{ position: "relative" }}
 				>
-					<Box
-						round
-						border
-						width="small"
-						height="small"
-						align="center"
-						justify="center"
-						hoverIndicator={{
-							background: {
-								color: 'background-contrast',
-							},
-							elevation: 'medium',
-						}}
-						onClick={() => { }}
-						key="add new image"
-						style={{ position: "relative" }}
-					>
-						<input type="file" accept="image/png,image/jpeg,image/gif" onChange={onFileInputChange} style={inputElementStyle} />
-						<Gallery size="large" />
-						<Text>Click or Drop files here</Text>
-					</Box>
-					{images.length > 0 && images.map(image => (
-						<LoadedImage src={image.src} name={image.name} id={image.id} key={image.name} />
-					))}
-				</Grid>
-			</Box>
+					<input type="file" accept="image/png,image/jpeg,image/gif" onChange={onFileInputChange} style={inputElementStyle} />
+					<Gallery size="large" />
+					<Text>Click or Drop files here</Text>
+				</Box>
+				{images.length > 0 && images.map(image => (
+					<LoadedImage src={image.src} name={image.name} id={image.id} key={image.name} />
+				))}
+			</Grid>
 		</Box>
 	)
 }
