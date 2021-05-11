@@ -6,9 +6,26 @@ import {
 	CardHeader,
 	Heading,
 	Image,
-	Stack
+	Stack,
+	Text,
+	Tip
 } from "grommet";
-import { Add } from "grommet-icons";
+
+const ImageTip: React.FunctionComponent = () => {
+	return (
+		<Box
+			pad="small"
+			gap="small"
+			width={{ max: "small" }}
+			round="small"
+			background="background-front"
+			responsive={false}
+		>
+			<Text weight="bold">Use this on your code</Text>
+			<Text size="small">Copy to clipboard on click</Text>
+		</Box>
+	)
+}
 
 interface LoadedImageProps {
 	src: string,
@@ -16,7 +33,7 @@ interface LoadedImageProps {
 	id: string
 }
 const LoadedImage: React.FunctionComponent<LoadedImageProps> = (props) => {
-	const handleAddButtonClicked = () => {
+	const handleCardOnClicked = () => {
 		// インポートした画像をjavascriptから呼び出すコードを生成
 		const code = `const image_${props.id} = document.getElementById("${props.id}"); // ${props.name}`;
 		// Addアイコンをクリックするとそれをクリップボードにコピーする
@@ -25,8 +42,8 @@ const LoadedImage: React.FunctionComponent<LoadedImageProps> = (props) => {
 		})
 	}
 	return (
-		<Stack anchor="top-right">
-			<Card width="small" height="small" key={props.name}>
+		<Tip plain content={<ImageTip />} dropProps={{ align: { top: 'bottom' } }} >
+			<Card width="small" height="small" key={props.name} onClick={handleCardOnClicked} >
 				<Stack anchor="bottom-left">
 					<CardBody height="small">
 						<Image src={props.src} id={props.id} fit="cover" crossOrigin="anonymous" />
@@ -41,15 +58,7 @@ const LoadedImage: React.FunctionComponent<LoadedImageProps> = (props) => {
 					</CardHeader>
 				</Stack>
 			</Card>
-			<Box
-				background="brand"
-				round
-				pad={{ horizontal: "small", vertical: "small" }}
-				onClick={handleAddButtonClicked}
-			>
-				<Add />
-			</Box>
-		</Stack>
+		</Tip>
 	)
 }
 export default LoadedImage;

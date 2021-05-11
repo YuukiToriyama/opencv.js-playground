@@ -13,9 +13,9 @@ import {
 import LoadedImage from "./LoadedImage";
 
 const sampleImages = [
-	{ src: "https://i.imgur.com/E5fh25x.jpg", name: "wildLife.jpg", id: "sample-1.jpg" },
-	{ src: "https://i.imgur.com/ZS8vJ2f.jpg", name: "panda.jpg", id: "sample-2.jpg" },
-	{ src: "https://i.imgur.com/IG9UZNO.jpg", name: "foo.jpg", id: "sample-3.jpg" }
+	{ src: "https://i.imgur.com/E5fh25x.jpg", name: "wildLife.jpg", id: "sample_1" },
+	{ src: "https://i.imgur.com/ZS8vJ2f.jpg", name: "panda.jpg", id: "sample_2" },
+	{ src: "https://i.imgur.com/IG9UZNO.jpg", name: "foo.jpg", id: "sample_3" }
 ]
 
 interface ImportImagesProps {

@@ -7,10 +7,10 @@ export const threshold: string = `
 // https://docs.opencv.org/3.4/d7/dd0/tutorial_js_thresholding.html
 
 // 読み込んだ画像にアクセス
-const imgElement = document.getElementById('image-1.jpg');
+const imgElement = document.getElementById('sample_1');
 
 // 処理をするためにOpenCVに読み込みMat型の変数を作成
-let src = cv.imread();
+let src = cv.imread(imgElement);
 // 同時に処理の出力先を作成
 let dst = new cv.Mat();
 
