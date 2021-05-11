@@ -108,6 +108,7 @@ const MainContent: React.FunctionComponent = () => {
 				>
 					<Box gridArea="description" background="dark-3" >
 						<Heading>hoge</Heading>
+						<canvas id="canvasOutput"></canvas>
 					</Box>
 					<Box gridArea="editor" background="neutral-2">
 						<CodeEditor

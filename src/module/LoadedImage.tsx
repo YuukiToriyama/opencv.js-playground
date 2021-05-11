@@ -29,7 +29,7 @@ const LoadedImage: React.FunctionComponent<LoadedImageProps> = (props) => {
 			<Card width="small" height="small" key={props.name}>
 				<Stack anchor="bottom-left">
 					<CardBody height="small">
-						<Image src={props.src} id={props.id} fit="cover" />
+						<Image src={props.src} id={props.id} fit="cover" crossOrigin="anonymous" />
 					</CardBody>
 					<CardHeader
 						pad={{ horizontal: "small", vertical: "small" }}
