@@ -3,12 +3,12 @@ import {
 	Box,
 	BoxProps,
 	Grid,
-	Text
 } from "grommet";
 import {
 	Gallery
 } from "grommet-icons";
 import LoadedImage from "./LoadedImage";
+import CustomButton from "./CustomButton";
 
 const sampleImages = [
 	{ src: "https://i.imgur.com/E5fh25x.jpg", name: "wildLife.jpg", id: "sample_1" },
@@ -80,27 +80,9 @@ const ImportImages: React.FunctionComponent<ImportImagesProps> = (props) => {
 				rows="small"
 				columns={{ count: 'fit', size: ['small', 'small'] }}
 			>
-				<Box
-					round
-					border
-					width="small"
-					height="small"
-					align="center"
-					justify="center"
-					hoverIndicator={{
-						background: {
-							color: 'background-contrast',
-						},
-						elevation: 'medium',
-					}}
-					onClick={() => { }}
-					key="add new image"
-					style={{ position: "relative" }}
-				>
+				<CustomButton icon={<Gallery size="large" />} text="Click or Drop files here">
 					<input type="file" accept="image/png,image/jpeg,image/gif" onChange={onFileInputChange} style={inputElementStyle} />
-					<Gallery size="large" />
-					<Text>Click or Drop files here</Text>
-				</Box>
+				</CustomButton>
 				{images.length > 0 && images.map(image => (
 					<LoadedImage src={image.src} name={image.name} id={image.id} key={image.name} />
 				))}
