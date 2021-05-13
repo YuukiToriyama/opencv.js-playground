@@ -1,12 +1,10 @@
 import React from "react";
 import {
 	Button,
-	ButtonProps,
 	Grommet,
 	Layer,
 } from "grommet";
 import {
-	Favorite,
 	FormClose,
 } from "grommet-icons";
 
@@ -16,22 +14,30 @@ import {
 	Favorite
 } from "grommet-icons";
 return (
-	<Dialog icon={<Favorite />}>
+	<Dialog trigerElement={<Button icon={props.icon || <Favorite />} onClick={onOpen} />} >
 		<p>hoge</p>
 	</Dialog>
 )
 */
 interface DialogProps {
-	children: React.ReactChild,
-	icon?: ButtonProps["icon"]
+	content: React.ReactElement,
+	children: React.ReactElement,
+	onClicked?: Function
 }
 const Dialog: React.FunctionComponent<DialogProps> = (props) => {
 	const [open, setOpen] = React.useState(false);
-	const onOpen = () => setOpen(true);
+	const onOpen = () => {
+		new Promise((resolve, reject) => {
+			setOpen(true);
+			resolve("");
+		}).then(() => {
+			(props.onClicked != undefined) && props.onClicked();
+		});
+	}
 	const onClose = () => setOpen(false);
 	return (
 		<Grommet>
-			<Button icon={props.icon || <Favorite />} onClick={onOpen} />
+			{React.cloneElement(props.children, { onClick: onOpen })}
 			{open && (
 				<Layer
 					full={false}
@@ -40,7 +46,7 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
 					onEsc={onClose}
 				>
 					<Button icon={<FormClose />} onClick={onClose} />
-					{props.children}
+					{props.content}
 				</Layer>
 			)}
 		</Grommet>
