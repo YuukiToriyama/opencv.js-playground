@@ -11,9 +11,9 @@ import LoadedImage from "./LoadedImage";
 import CustomButton from "./CustomButton";
 
 const sampleImages = [
-	{ src: "https://i.imgur.com/E5fh25x.jpg", name: "wildLife.jpg", id: "sample_1" },
-	{ src: "https://i.imgur.com/ZS8vJ2f.jpg", name: "panda.jpg", id: "sample_2" },
-	{ src: "https://i.imgur.com/IG9UZNO.jpg", name: "foo.jpg", id: "sample_3" }
+	{ src: "https://live.staticflickr.com/7175/6461531797_11cb98c762_k_d.jpg", name: "dog", id: "sample_1" },
+	{ src: "https://live.staticflickr.com/391/19471594842_ffebf53da0_o_d.jpg", name: "uk_poster", id: "sample_2" },
+	{ src: "https://live.staticflickr.com/3955/15415712458_2e65f97a51_o_d.jpg", name: "old_picture", id: "sample_3" }
 ]
 
 interface ImportImagesProps {
