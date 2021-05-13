@@ -65,8 +65,8 @@ const MainContent: React.FunctionComponent = () => {
 	}
 	return (
 		<Main pad="large">
-			<Heading>Main content</Heading>
-			<Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
+			<Heading>Welcome to OpenCV.js Playground</Heading>
+			<Paragraph>ようこそOpenCV.js Playgroundへ！このサイトではOpenCV.jsを使った画像処理を試してみることができます。作成したコードをご自身の環境でも実行できるようにファイル一式をダウンロードすることもできます(準備中)。</Paragraph>
 			<Grommet >
 				{/* Step1 画像の読み込み */}
 				<Box background="light-3" height="medium" key="step1">
@@ -77,7 +77,7 @@ const MainContent: React.FunctionComponent = () => {
 				{/* Step2 コードの編集 */}
 				<Box height="large" background="light-1" margin={{ top: "medium" }} key="step2">
 					<Heading level="2">Edit Code</Heading>
-					<Paragraph>Write code using OpenCV.js and execute it. If you want to dedug your code, you can use console.log(). console.log puts the results out the window below.</Paragraph>
+					<Paragraph>Write code using OpenCV.js and execute it. You can display a result image on &lt;canvas id="output"/&gt;, so use cv.imshow("output", dst);. If you want to dedug your code, you can use console.log(). console.log puts the results out the window below.</Paragraph>
 					<CodeEditor
 						defaultValue={code}
 						language="javascript"
@@ -88,8 +88,8 @@ const MainContent: React.FunctionComponent = () => {
 				</Box>
 				{/* Step3 オプションの設定とコードの実行 */}
 				<Box background="light-2" margin={{ top: "medium" }} key="step3">
-					<Heading level="2">Configure Options then Execute</Heading>
-					<Text>Set options and execute your code.</Text>
+					<Heading level="2">Execute the Code</Heading>
+					<Text>Run your code on click the button. The result image will be printed the canvas below. If the program has some error, they are printed to the console.</Text>
 					<Box pad="small">
 						<CustomButton icon={<Cursor size="large" />} text="Run Code" onClick={onButtonClick} />
 						<canvas id="output" />

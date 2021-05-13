@@ -46,8 +46,9 @@ const LoadedImage: React.FunctionComponent<LoadedImageProps> = (props) => {
 			<Card width="small" height="small" key={props.name} onClick={handleCardOnClicked} >
 				<Stack anchor="bottom-left">
 					<CardBody height="small">
-						<Image src={props.src} id={props.id} fit="cover" crossOrigin="anonymous" />
+						<Image src={props.src} fit="cover" />
 					</CardBody>
+					<img src={props.src} id={props.id} crossOrigin="anonymous" style={{ visibility: "hidden" }} />
 					<CardHeader
 						pad={{ horizontal: "small", vertical: "small" }}
 						background="#000000A0"

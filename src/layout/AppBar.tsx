@@ -3,12 +3,15 @@ import {
 	Anchor,
 	Box,
 	Header,
+	Markdown
 } from "grommet";
 import {
 	Code,
 	CircleQuestion,
 	Github
 } from "grommet-icons";
+import Dialog from "../module/Dialog";
+import helpPage from "../util/helpPage.md";
 
 const AppBar: React.FunctionComponent = () => {
 	return (
@@ -16,7 +19,11 @@ const AppBar: React.FunctionComponent = () => {
 			<Anchor href="#" icon={<Code color="brand" />} label="OpenCV.js Playground" />
 			<Box justify="end" direction="row" gap="medium">
 				<Anchor href="https://github.com/YUUKIToriyama/opencv.js-playground" icon={<Github />} label="GitHub" />
-				<Anchor icon={<CircleQuestion />} onClick={() => alert("help")} label="Help" />
+				<Dialog
+					content={<Box pad="small" overflow="scroll"><Markdown>{helpPage}</Markdown></Box>}
+				>
+					<Anchor icon={<CircleQuestion />} label="Help" />
+				</Dialog>
 			</Box>
 		</Header>
 	)

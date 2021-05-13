@@ -1,16 +1,19 @@
 import React from "react";
 import {
 	Box,
+	BoxProps,
 	Text
 } from "grommet";
 
 interface CustomButtonProps {
 	icon: React.ReactNode,
 	text: string,
-	children?: React.ReactChild
+	children?: React.ReactChild,
+	onClick?: BoxProps["onClick"]
 }
 
 const CustomButton: React.FunctionComponent<CustomButtonProps> = (props) => {
+	const func = () => { };
 	return (
 		<Box
 			round
@@ -25,7 +28,7 @@ const CustomButton: React.FunctionComponent<CustomButtonProps> = (props) => {
 				},
 				elevation: 'medium',
 			}}
-			onClick={() => { }}
+			onClick={props.onClick || func}
 			key="add new image"
 			style={{ position: "relative" }}
 		>

@@ -8,17 +8,7 @@ import {
 	FormClose,
 } from "grommet-icons";
 
-/* Usage
-import Dialog from "src/module/Dialog.tsx";
-import {
-	Favorite
-} from "grommet-icons";
-return (
-	<Dialog trigerElement={<Button icon={props.icon || <Favorite />} onClick={onOpen} />} >
-		<p>hoge</p>
-	</Dialog>
-)
-*/
+
 interface DialogProps {
 	content: React.ReactElement,
 	children: React.ReactElement,
