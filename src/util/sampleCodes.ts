@@ -32,7 +32,7 @@ cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
 cv.threshold(src, dst, 177, 200, cv.THRESH_BINARY);
 
 // 処理結果をcanvasに表示する
-cv.imshow('canvasOutput', dst);
+cv.imshow('output', dst);
 
 // 後処理
 // GCが働かないのでsrc,dstなどのMatオブジェクトは処理終了後削除する必要があります

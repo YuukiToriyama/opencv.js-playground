@@ -9,16 +9,25 @@ import {
 	Text,
 	TextArea,
 } from "grommet";
+import {
+	Cursor
+} from "grommet-icons"
 
 import CodeEditor from '../module/CodeEditor';
 import ImportImages from '../module/ImportImages';
 import { threshold } from '../util/sampleCodes';
 import Console from "../module/Console";
+import CustomButton from "../module/CustomButton";
+import Dialog from "../module/Dialog";
 
 export interface Log {
 	method: string
 	error?: Error
-	object?: object | string
+	object?: HTMLElement | object | string
+}
+const defaultLog: Log = {
+	method: "log",
+	object: "Welcome to OpenCV.js Playground! Your console.log outputs and errors will be printed here."
 }
 
 const MainContent: React.FunctionComponent = () => {
@@ -26,10 +35,9 @@ const MainContent: React.FunctionComponent = () => {
 	const [code, setCode] = React.useState(threshold);
 	const onEditorCodeChange = (currentCode: string) => {
 		setCode(currentCode);
-		//console.log(currentCode)
 	}
 	// ログを画面上に出力する
-	const [logs, setLogs] = React.useState<Log[]>([]);
+	const [logs, setLogs] = React.useState<Log[]>([defaultLog]);
 	React.useEffect(() => {
 		// console.log()を書き換えて結果を<TextArea/>に表示する
 		console.log = (args: string | object) => {
@@ -47,7 +55,6 @@ const MainContent: React.FunctionComponent = () => {
 					error: error
 				}
 				setLogs(prevState => [log].concat(prevState));
-				//console.error(logs);
 			}
 		}
 	}, []);
@@ -80,14 +87,16 @@ const MainContent: React.FunctionComponent = () => {
 					></CodeEditor>
 				</Box>
 				{/* Step3 オプションの設定とコードの実行 */}
-				<Box background="brand" margin={{ top: "medium" }} key="step3">
+				<Box background="light-2" margin={{ top: "medium" }} key="step3">
 					<Heading level="2">Configure Options then Execute</Heading>
 					<Text>Set options and execute your code.</Text>
-					<Button onClick={onButtonClick} label="実行" primary />
-					{/* 表かなにかを使ってコンソールを表現する */}
-					<Console logs={logs} />
+					<Box pad="small">
+						<CustomButton icon={<Cursor size="large" />} text="Run Code" onClick={onButtonClick} />
+						<canvas id="output" />
+						<Console logs={logs} />
+					</Box>
 				</Box>
-				{/* Area3 */}
+				{/* Step4  */}
 				{/*
 				<Box background="light-1" margin={{ top: "medium" }} key="step4">
 					<Heading level="2">Download Your Code</Heading>
