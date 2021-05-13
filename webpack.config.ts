@@ -40,6 +40,10 @@ const config: Configuration = {
 			{
 				test: /\.(png|jpg)$/,
 				type: 'asset/resource'
+			},
+			{
+				test: /\.md$/,
+				type: 'asset/source'
 			}
 		],
 	},
