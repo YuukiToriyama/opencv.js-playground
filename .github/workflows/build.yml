@@ -1,0 +1,39 @@
+name: Build and Release to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ["15.x"]
+
+    steps:
+      # チェックアウト
+      - uses: actions/checkout@v2
+
+      # 使用するnodeのバージョンを指定
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # パッケージのインストールとアプリのビルド
+      - name: install and build
+        run: |
+          npm ci
+          npm run build
+        env:
+          CI: true
+
+      # gh-pagesを使って公開
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./dist
