@@ -1,13 +1,11 @@
 import React from "react";
 import {
-	Button,
 	Box,
 	Grommet,
 	Heading,
 	Main,
 	Paragraph,
 	Text,
-	TextArea,
 } from "grommet";
 import {
 	Cursor
@@ -18,7 +16,6 @@ import ImportImages from '../module/ImportImages';
 import { threshold } from '../util/sampleCodes';
 import Console from "../module/Console";
 import CustomButton from "../module/CustomButton";
-import Dialog from "../module/Dialog";
 
 export interface Log {
 	method: string

@@ -10,7 +10,10 @@ import {
 	CircleQuestion,
 	Github
 } from "grommet-icons";
-import Dialog from "../module/Dialog";
+import {
+	Dialog
+} from "grommet-component-collection";
+//import Dialog from "../module/Dialog";
 import helpPage from "../util/helpPage.md";
 
 const AppBar: React.FunctionComponent = () => {
