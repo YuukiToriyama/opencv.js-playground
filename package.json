@@ -7,7 +7,7 @@
     "start": "webpack serve",
     "build": "webpack --mode=production",
     "build:watch": "webpack --watch",
-    "analyze": "webpack --profile --json | webpack-bundle-analyzer",
+    "analyze": "webpack --analyze",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -45,8 +45,13 @@
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
     "webpack": "^5.37.0",
+<<<<<<< HEAD
     "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
+=======
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.7.0"
+>>>>>>> 5183a1405b80ad03cb0a71b5aa7acd111098a8e3
   }
 }
