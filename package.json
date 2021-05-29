@@ -1,6 +1,6 @@
 {
   "name": "@toriyama/opencvjs-playground",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Enjoy OpenCV.js with me!",
   "main": "src/index.tsx",
   "scripts": {
