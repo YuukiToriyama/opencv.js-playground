@@ -13,7 +13,6 @@ import {
 import {
 	Dialog
 } from "grommet-component-collection";
-//import Dialog from "../module/Dialog";
 import helpPage from "../util/helpPage.md";
 
 const AppBar: React.FunctionComponent = () => {

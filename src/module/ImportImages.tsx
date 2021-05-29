@@ -7,14 +7,9 @@ import {
 import {
 	Gallery
 } from "grommet-icons";
-import LoadedImage from "./LoadedImage";
+import LoadedImage, { ImageObject } from "./LoadedImage";
 import CustomButton from "./CustomButton";
 
-interface ImageObject {
-	src: string
-	name: string
-	id: string
-}
 interface ImportImagesProps {
 	onImageLoaded: Function
 	overflow?: BoxProps["overflow"]

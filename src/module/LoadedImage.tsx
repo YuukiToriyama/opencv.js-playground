@@ -26,13 +26,12 @@ const ImageTip: React.FunctionComponent = () => {
 		</Box>
 	)
 }
-
-interface LoadedImageProps {
-	src: string,
-	name: string,
+export interface ImageObject {
+	src: string
+	name: string
 	id: string
 }
-const LoadedImage: React.FunctionComponent<LoadedImageProps> = (props) => {
+const LoadedImage: React.FunctionComponent<ImageObject> = (props) => {
 	const handleCardOnClicked = () => {
 		// インポートした画像をjavascriptから呼び出すコードを生成
 		const code = `const image_${props.id} = document.getElementById("${props.id}"); // ${props.name}`;
