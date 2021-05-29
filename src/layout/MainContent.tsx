@@ -16,6 +16,7 @@ import ImportImages from '../module/ImportImages';
 import { threshold } from '../util/sampleCodes';
 import Console from "../module/Console";
 import CustomButton from "../module/CustomButton";
+import { sampleImages } from "../util/sampleImages";
 
 export interface Log {
 	method: string
@@ -69,7 +70,7 @@ const MainContent: React.FunctionComponent = () => {
 				<Box background="light-3" height="medium" key="step1">
 					<Heading level="2">Import Images</Heading>
 					<Paragraph>First, import images which you want to process.</Paragraph>
-					<ImportImages onImageLoaded={() => { }} overflow={{ vertical: "scroll" }} />
+					<ImportImages onImageLoaded={() => { }} overflow={{ vertical: "scroll" }} defaultImages={sampleImages} />
 				</Box>
 				{/* Step2 コードの編集 */}
 				<Box height="large" background="light-1" margin={{ top: "medium" }} key="step2">

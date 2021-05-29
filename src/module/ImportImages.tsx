@@ -10,19 +10,19 @@ import {
 import LoadedImage from "./LoadedImage";
 import CustomButton from "./CustomButton";
 
-const sampleImages = [
-	{ src: "https://live.staticflickr.com/7175/6461531797_11cb98c762_k_d.jpg", name: "dog", id: "sample_1" },
-	{ src: "https://live.staticflickr.com/391/19471594842_ffebf53da0_o_d.jpg", name: "uk_poster", id: "sample_2" },
-	{ src: "https://live.staticflickr.com/3955/15415712458_2e65f97a51_o_d.jpg", name: "old_picture", id: "sample_3" }
-]
-
+interface ImageObject {
+	src: string
+	name: string
+	id: string
+}
 interface ImportImagesProps {
-	onImageLoaded: Function,
+	onImageLoaded: Function
 	overflow?: BoxProps["overflow"]
+	defaultImages?: ImageObject[]
 }
 const ImportImages: React.FunctionComponent<ImportImagesProps> = (props) => {
 	// 読み込んだ画像をstateに保存
-	const [images, setImages] = React.useState<{ src: string, name: string, id: string }[]>(sampleImages);
+	const [images, setImages] = React.useState<ImageObject[]>(props.defaultImages || []);
 	// ファイルをドラッグ・アンド・ドロップして読み込む仕組みをつくる
 	const dropAreaRef = React.useRef<HTMLDivElement>(null);
 	const [dragOver, setDragOver] = React.useState(false);
